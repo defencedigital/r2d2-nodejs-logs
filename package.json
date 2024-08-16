@@ -1,0 +1,38 @@
+{
+  "name": "@defencedigital/r2d2-nodejs-logs",
+  "version": "0.0.1",
+  "description": "A flexible logging library for TypeScript projects",
+  "main": "dist/cjs/logger.js",
+  "module": "dist/esm/logger.js",
+  "types": "dist/types/logger.d.ts",
+  "private": true,
+  "scripts": {
+    "build": "npm run build:cjs && npm run build:esm && npm run build:types",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:types": "tsc -p tsconfig.types.json",
+    "test": "jest",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "logging",
+    "typescript",
+    "nodejs"
+  ],
+  "author": "Lukasz Raczylo",
+  "license": "UKGLF",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/defencedigital/r2d2-nodejs-logs.git"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.0",
+    "jest": "^27.0.0",
+    "ts-jest": "^27.0.0",
+    "typescript": "^4.5.0"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ]
+}
