@@ -1,6 +1,6 @@
 {
   "name": "@defencedigital/r2d2-nodejs-logs",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A flexible logging library for TypeScript projects",
   "main": "dist/cjs/logger.js",
   "module": "dist/esm/logger.js",
