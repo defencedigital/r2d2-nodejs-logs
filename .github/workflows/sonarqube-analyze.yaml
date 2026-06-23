@@ -1,0 +1,21 @@
+name: Analyze
+
+on:
+  workflow_dispatch:
+  push:
+    paths-ignore:
+      - '**.md'
+      - 'CODEOWNERS'
+    branches:
+      - '**'
+  pull_request:
+  schedule:
+    - cron: '0 2 * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  sonarqube:
+    uses: defencedigital/r2d2-kubernetes-v2/.github/workflows/sonarqube-analyze.yaml@main
+    secrets: inherit
