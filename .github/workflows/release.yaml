@@ -41,26 +41,26 @@ jobs:
         env:
           YARN_NPM_AUTH_IDENT: ${{ secrets.NEXUS_USER_PASS_BASE64 }}
 
-      - name: Commit package.json changes
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add package.json
-          git commit -m "Bump version to ${{ steps.semver.outputs.semantic_version }}"
+      # - name: Commit package.json changes
+      #   run: |
+      #     git config --local user.email "action@github.com"
+      #     git config --local user.name "GitHub Action"
+      #     git add package.json
+      #     git commit -m "Bump version to ${{ steps.semver.outputs.semantic_version }}"
 
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+      # - name: Push changes
+      #   uses: ad-m/github-push-action@master
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     branch: ${{ github.ref }}
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: v${{ steps.semver.outputs.semantic_version }}
-          release_name: Release ${{ steps.semver.outputs.semantic_version }}
-          draft: false
-          prerelease: false
+      # - name: Create Release
+      #   id: create_release
+      #   uses: actions/create-release@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     tag_name: v${{ steps.semver.outputs.semantic_version }}
+      #     release_name: Release ${{ steps.semver.outputs.semantic_version }}
+      #     draft: false
+      #     prerelease: false
