@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches:
-      - main
+      - rc-471/nexus-npm
 
 jobs:
   release:
@@ -33,7 +33,13 @@ jobs:
           npm version ${{ steps.semver.outputs.semantic_version }} --no-git-tag-version
 
       - name: Build project
-        run: npm ci && npm run build
+        run: |
+          echo "registry=https://nrm-nexus-repo.apps.ocp1.azure.dso.digital.mod.uk" > .npmrc
+          echo "always-auth=true" >> .npmrc
+          echo "//nrm-nexus-repo.apps.ocp1.azure.dso.digital.mod.uk/repository/npm-proxy/${YARN_NPM_AUTH_IDENT}" >> .npmrc
+          npm ci && npm run build
+        env:
+          YARN_NPM_AUTH_IDENT: ${{ secrets.NEXUS_USER_PASS_BASE64 }}
 
       - name: Commit package.json changes
         run: |
