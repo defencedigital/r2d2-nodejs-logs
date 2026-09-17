@@ -1,18 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es2018",
+    "target": "es2024",
     "module": "commonjs",
     "declaration": true,
+    "types": ["node"],
+    "rootDir": "src",
     "outDir": "./dist",
     "strict": true,
     "esModuleInterop": true,
-    "moduleResolution": "node"
+    "skipLibCheck": true
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/__tests__/*"
-  ]
+  "include": ["src"],
+  "exclude": ["node_modules", "**/__tests__/*"]
 }
