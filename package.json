@@ -7,12 +7,12 @@
   "types": "dist/types/logger.d.ts",
   "private": true,
   "scripts": {
-    "build": "npm run build:cjs && npm run build:esm && npm run build:types",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
-    "build:esm": "tsc -p tsconfig.esm.json",
+    "build": "npm run build:esm && npm run build:types",
+    "build:esm": "tsc -p tsconfig.json",
     "build:types": "tsc -p tsconfig.types.json",
     "test": "jest",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "check-updates": "npx npm-check-updates"
   },
   "keywords": [
     "logging",
@@ -31,9 +31,9 @@
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
-    "jest": "^30.2.0",
-    "ts-jest": "^29.4.6",
-    "typescript": "^5.9.3"
+    "jest": "^30.5.1",
+    "ts-jest": "^29.4.12",
+    "typescript": "^6.0.3"
   },
   "files": [
     "dist",
